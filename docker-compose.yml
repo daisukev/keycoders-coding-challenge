@@ -1,3 +1,5 @@
+# include:
+  # - backend/compose.yaml
 services:
   frontend:
     build: ./frontend
@@ -14,10 +16,26 @@ services:
         - action: sync
           path: ./frontend/package.json
           target: /app/package.json
-    # depends_on:
-      # - backend
+    depends_on:
+      - backend
 
-  # backend:
-  #   build: ./backend
-  #   ports:
-  #     - "8080:8080"
+  backend:
+    build: ./backend
+    # volumes:
+    #   - ./backend:/app
+    env_file:
+      - ./backend/.env
+    ports:
+      - "8080:8080"
+    develop:
+      watch:
+        - action: sync
+          path: backend/
+          target: /app
+
+networks:
+  keycoders:
+    driver: bridge
+
+volumes:
+  data:

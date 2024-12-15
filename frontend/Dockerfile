@@ -6,4 +6,5 @@ COPY package-lock.json ./
 RUN npm install
 COPY . .
 EXPOSE 5173
-CMD ["vite"]
+# CMD ["vite"]
+CMD ["npm", "run", "dev"]
