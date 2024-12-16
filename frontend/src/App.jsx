@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import LoginPage from "./views/LoginPage";
+import './App.css'
+
 function App() {
 
   const [data, setData] = useState(null)
@@ -24,8 +27,7 @@ function App() {
 
   return (
     <>
-      <h1>Key Coders Code Challenge</h1>
-      <p>{data}</p>
+      <LoginPage />
     </>
   );
 }

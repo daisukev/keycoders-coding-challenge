@@ -1,0 +1,182 @@
+.header {
+    max-height: 20cqh;
+    padding: 1rem;
+    height: 20cqh;
+}
+
+.container>div {
+    padding: 0.75rem;
+}
+
+.logo {
+    height: 85px;
+    width: auto;
+}
+
+.loginPage {
+    container-type: inline-size;
+    margin: auto;
+    max-width: 1440px;
+}
+
+.container {
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: auto;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.login {
+    background-color: var(--light);
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.loginForm {
+    display: grid;
+    grid-template-columns: 4fr 5fr 5fr;
+    gap: 1rem;
+}
+
+.loginForm h2 {
+    display: none;
+}
+
+.loginForm label {
+    display: grid;
+    grid-column: 1/-1;
+}
+
+.errorMessage {
+    grid-column: 1/-1;
+    justify-self: center;
+    color: var(--error);
+}
+
+.loginForm label svg {
+    display: none;
+}
+
+.loginForm button {
+    /* should probably standarize the buttons a bit */
+    width: 7rem;
+    background: var(--orange);
+    color: white;
+    border-radius: var(--border-radius);
+    height: 2rem;
+    font-weight: bold;
+    border: none;
+}
+
+.errorMessage {
+    min-height: 1.5rem;
+}
+
+.sso {
+    /* padding-block: 2rem; */
+}
+
+.sso button {
+    background-color: var(--blue);
+    color: var(--light);
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    height: var(--input-height);
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    place-content: end center;
+}
+
+.textHR {
+    color: var(--secondary-color);
+    font-size: 0.67rem;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1em;
+}
+
+.finePrint {
+    display: block;
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 0.67rem;
+    line-height: 0.65rem;
+    padding-block: 1rem;
+}
+
+
+.textHR span {
+    border-bottom: 2px solid var(--main-bg-color);
+}
+
+@container(width > 800px) {
+    .container {
+        grid-template-columns: 5fr 3fr;
+        max-width: 80cqw;
+        max-height: 80cqh;
+    }
+
+    .container>div {
+        padding: 2rem;
+    }
+
+    .login {
+        border-radius: 1rem;
+    }
+
+    .sso button {
+        width: 100%;
+    }
+
+    .loginForm h2 {
+        display: unset;
+        justify-self: center;
+        grid-column: 1/-1;
+    }
+
+
+    .loginForm label {
+        grid-template-columns: subgrid;
+    }
+
+
+    .loginForm label svg {
+        grid-column: 1;
+        display: unset;
+        justify-self: end;
+    }
+
+    .loginForm label input {
+        grid-column: 2/-1;
+    }
+
+    .loginForm button {
+        grid-column: 2/-1;
+    }
+
+    .logo {
+        max-height: 85px;
+    }
+}
+
+input[type=text]:user-invalid,
+input[type=password]:user-invalid,
+.invalid {
+    outline: 1px solid var(--error);
+    border: 2px solid var(--error);
+}
+
+input[type=text]:user-valid,
+input[type=password]:user-valid,
+.valid {
+    outline: 1px solid var(--success);
+    border: 2px solid var(--success);
+}
