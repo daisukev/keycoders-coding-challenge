@@ -39,13 +39,12 @@ function App() {
   return (
     <>
       <Routes>
-        <Route index element={<LoginPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/dashboard" element={<ProtectedRoute />} >
-          <Route element={<DashboardLayout />}>
+        <Route path="/" element={<ProtectedRoute />}>
+          <Route path="/" element={<DashboardLayout />}>
             <Route index element={<DashboardHome />} />
           </Route>
         </Route>
+        <Route path="/login" element={<LoginPage />} />
       </Routes >
     </>
   );

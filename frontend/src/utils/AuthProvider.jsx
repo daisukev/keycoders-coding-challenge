@@ -2,8 +2,11 @@
 import { createContext } from "react"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router";
+import { baseUrl } from "./base";
 
 export const AuthContext = createContext(null)
+
+/* TODO: invalidate bad JWTS */
 
 function AuthProvider({ children }) {
     const checkAuth = () => {
@@ -40,8 +43,36 @@ function AuthProvider({ children }) {
         navigate('/login')
     }
 
+    const login = async (login, password) => {
 
-    return (<AuthContext.Provider value={{ isAuthenticated, checkAuth, logout }}>
+        // localStorage.setItem('jwt', 'test')
+        // setIsAuthenticated(checkAuth)
+        // navigate('/')
+
+        const form = {
+            login: login,
+            password: password
+        }
+        const res = await fetch(`${baseUrl}/api/login`, {
+            method: 'post', body: JSON.stringify(form),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        // const res = await fetch(`${baseUrl}/api/token`, {
+        //     method: 'get'
+        // });
+        if (!res.ok) {
+            throw new Error('Response not Okay.')
+        }
+        else {
+            const json = await res.json();
+            localStorage.setItem('jwt', json)
+            console.log(json)
+        }
+    }
+
+    return (<AuthContext.Provider value={{ isAuthenticated, checkAuth, logout, login }}>
         {children}
     </AuthContext.Provider>
     )

@@ -6,12 +6,14 @@ import nakupunaLogo from '../assets/nakupuna-color-logo.png'
 import sailIcon from '../assets/nakupuna-sail-icon.png'
 import AvatarSVG from '../components/AvatarSVG.jsx'
 import LockSVG from "../components/LockSVG.jsx";
+import { baseUrl } from "../utils/base.jsx";
 
 const LoginPage = () => {
     const navigate = useNavigate();
-    const auth = useContext(AuthContext)
+    const { login } = useContext(AuthContext)
+    const [isPending, setIsPending] = useState(false)
     const [formData, setFormData] = useState({
-        username: "",
+        login: "",
         password: "",
     })
     const [error, setError] = useState('')
@@ -25,10 +27,20 @@ const LoginPage = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setError('Invalid Username or Password')
 
+        setError('')
+        setIsPending(true)
+        try {
+            await login(formData.login, formData.password);
+            navigate('/')
+        }
+        catch (error) {
+            console.log(error)
+            setError('Invalid Username or Password')
+            setIsPending(false)
+        }
     }
 
     return (
@@ -47,23 +59,23 @@ const LoginPage = () => {
                         <p className={styles.errorMessage}>
                             {error}
                         </p>
-                        <label htmlFor="username">
+                        <label htmlFor="login">
                             <AvatarSVG width='2rem' height='2rem' />
-                            <input tabIndex={1} name='username' type="text" placeholder="Username or Email" onChange={handleChange}
-                                value={formData.username} autoFocus required />
+                            <input tabIndex={1} name='login' type="text" placeholder="Username or Email" onChange={handleChange}
+                                value={formData.login} autoFocus required />
                         </label>
                         <label htmlFor="password">
                             <LockSVG width='2rem' height='2rem' />
                             <input tabIndex={2} name='password' type="password" placeholder="password" onChange={handleChange}
-                                value={formData.password} required />
+                                value={formData.password} />
                         </label>
-                        <button type="submit">Log In</button>
+                        <button type="submit" disabled={isPending} >{!isPending ? 'Log In' : 'Logging in...'}</button>
                     </form>
                     <div className={styles.sso}>
                         <div className={styles.textHR}><span></span><small>or</small><span></span></div>
                         <small className={styles.finePrint}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse voluptate repudiandae earum voluptates</small>
-                        <form action="">
-                            <button>
+                        <form>
+                            <button disabled>
                                 <span>
                                     Log in using SSO
                                 </span>
