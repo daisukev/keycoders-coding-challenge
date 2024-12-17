@@ -1,5 +1,5 @@
 const SurveyForm = ({ children, ...props }) => {
-    /* 
+  /* 
   
       Let's assume that a form is going to be sent to a user. formatted how?}
       {
@@ -14,7 +14,7 @@ const SurveyForm = ({ children, ...props }) => {
         responseType: 1, // Text
       }
       */
-    return <form {...props}>{children}</form>;
+  return <form {...props}>{children}</form>;
 };
 
 export default SurveyForm;

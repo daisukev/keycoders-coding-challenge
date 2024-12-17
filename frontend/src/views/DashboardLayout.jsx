@@ -9,9 +9,11 @@ const DashboardLayout = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <Sidebar></Sidebar>
-      <div className={styles.contentContainer}>
-        <Outlet />
+      <div className={styles.subheadContainer}>
+        <Sidebar></Sidebar>
+        <div className={styles.contentContainer}>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

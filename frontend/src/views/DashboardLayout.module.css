@@ -1,12 +1,24 @@
 .container {
   display: grid;
-  grid-template-areas:
-    "a a a a a a a a a a"
-    "b b b c c c c c c c"
-    "b b b c c c c c c c";
-  container-type: inline-size;
+  container-type: size;
+  grid-template-rows: max-content 1fr;
+  height: 100cqh;
 }
 
 .contentContainer {
   padding: 0.5rem;
+  overflow-y: auto;
+}
+
+.subheadContainer {
+  container-type: size;
+  display: block;
+}
+
+@container (width > 768px) {
+  .subheadContainer {
+    container-type: size;
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
 }

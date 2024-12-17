@@ -1,19 +1,24 @@
 import { NavLink } from "react-router";
-import AvatarSVG from "../components/AvatarSVG.jsx";
+import AvatarSVG from "./icons/AvatarSVG.jsx";
+import NotificationSVG from "./icons/NotificationSVG.jsx";
 import nakupunaLogo from "../assets/nakupuna-color-logo.png";
 import styles from "./Header.module.css";
+import NavItem from "./NavItem.jsx";
 const Header = () => {
     return (
         <div className={styles.header}>
             <NavLink to="/">
-                <img
-                    className={nakupunaLogo}
-                    src={nakupunaLogo}
-                    alt="Nakupuna logo"
-                    height={85}
-                />
+                <img className={nakupunaLogo} src={nakupunaLogo} alt="Nakupuna logo" />
             </NavLink>
-            <AvatarSVG />
+            <div className={styles.sideNavigation}>
+
+                <NavItem
+                    icon={
+                        <NotificationSVG />} >
+
+                </NavItem>
+                <AvatarSVG />
+            </div>
         </div>
     );
 };

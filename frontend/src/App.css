@@ -40,6 +40,13 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100dvw;
+  height: 100dvh;
+  /* overflow: hidden; */
+}
+
 * {
   margin: 0;
 }
@@ -119,4 +126,9 @@ button:disabled:active {
 
 .box-shadow {
   box-shadow: var(--box-shadow);
+}
+
+.viewportContainer {
+  container-type: size;
+  height: 100cqh;
 }

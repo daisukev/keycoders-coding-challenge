@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate, Navigate } from "react-router";
 import LoginPage from "./views/LoginPage";
 import DashboardLayout from "./views/DashboardLayout";
 import DashboardHome from "./views/DashboardHome";
+import TemplateBuilder from "./views/TemplateBuilder";
 import "./App.css";
 import { AuthContext } from "./utils/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -36,14 +37,18 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={<ProtectedRoute />}>
-          <Route path="/" element={<DashboardLayout />}>
-            <Route index element={<DashboardHome />} />
+      <div className="viewportContainer">
+        <Routes>
+          <Route path="/" element={<ProtectedRoute />}>
+            <Route path="/" element={<DashboardLayout />}>
+              <Route index element={<DashboardHome />} />
+              <Route path="/template-builder" element={<TemplateBuilder />} />
+              <Route path="/*" element={<DashboardHome />} />
+            </Route>
           </Route>
-        </Route>
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </div>
     </>
   );
 }
