@@ -67,8 +67,10 @@ function AuthProvider({ children }) {
         }
         else {
             const json = await res.json();
-            localStorage.setItem('jwt', json)
-            console.log(json)
+            localStorage.setItem('jwt', json.jwt)
+            setIsAuthenticated(checkAuth)
+            navigate("/")
+
         }
     }
 

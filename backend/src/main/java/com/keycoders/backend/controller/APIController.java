@@ -33,7 +33,8 @@ public class APIController {
 
     @GetMapping(value = "/token")
     public Message getToken() {
-        String sql = "SELECT COUNT(*) FROM sys.all_columns";
+        // String sql = "SELECT COUNT(*) FROM sys.all_columns";
+        String sql = "SELECT STRING_AGG(NAME,',') FROM SYS.tables";
         String message = jdbcTemplate.queryForObject(sql, String.class);
         return new Message(message);
     }

@@ -1,7 +1,10 @@
 package com.keycoders.backend.controller;
 
 import java.nio.charset.StandardCharsets;
+import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.crypto.SecretKey;
 
@@ -15,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.keycoders.backend.entities.Credentials;
 import com.keycoders.backend.entities.User;
 import com.keycoders.backend.repositories.UserRepository;
@@ -35,7 +40,8 @@ public class AuthController {
     @Autowired
     private PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
-    UserRepository userRepository = new UserRepository();
+    @Autowired
+    private UserRepository userRepository;
 
     @Value("${jwt.secret}")
     private String jwtSecret;
@@ -43,29 +49,35 @@ public class AuthController {
     @Value("${jwt.expiration}") // JWT expiration in milliseconds
     private long jwtExpirationMS;
 
-    @PostMapping("/login")
-    public ResponseEntity<?> authenticateUser(@RequestBody Credentials credentials) {
-        // User user = userRepository.findUserByEmail(credentials.getLogin());
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
+    @PostMapping("/login")
+    public ResponseEntity<?> authenticateUser(@RequestBody Credentials credentials) throws SQLException {
+        // TODO: Error Handling on blank results
+        User user = userRepository.findUserByEmail(credentials.getLogin());
         // compare passwords
         String hashedPass = passwordEncoder.encode(credentials.getPassword());
-        // String jwt = generateJwtToken(user);
+        String jwt = generateJwtToken(user);
 
         String hashedPassResult = "{pass: " + hashedPass + "}";
 
-        return (ResponseEntity<?>) ResponseEntity.ok().body(hashedPassResult);
+        Map<String, String> response = new HashMap<>();
+        response.put("jwt", jwt);
+
+        return (ResponseEntity<?>) ResponseEntity.ok().body(response);
+
     }
 
     private String generateJwtToken(User user) {
 
         // create key using secret.
         SecretKey key = Keys.hmacShaKeyFor(this.jwtSecret.getBytes(StandardCharsets.UTF_8));
-        // add user object
 
         // java.util.Date date = new java.util.Date();
         Timestamp issueDate = new Timestamp(System.currentTimeMillis());
         Timestamp expirationDate = new Timestamp(issueDate.getTime() + this.jwtExpirationMS);
         return Jwts.builder().subject(user.getEmailAddress())
+                .claim("user", user)
                 .issuedAt(issueDate)
                 .expiration(expirationDate)
                 .signWith(key)
