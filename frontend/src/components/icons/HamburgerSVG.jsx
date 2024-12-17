@@ -2,15 +2,16 @@ const HamburgerSVG = ({
   width = "50",
   height = 50,
   stroke = "#000",
+  fill = "none",
   ...restProps
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={width}
     height={height}
-    fill="none"
+    fill={fill}
     viewBox="0 0 24 24"
-    {...resProps}
+    {...restProps}
   >
     <path
       stroke={stroke}

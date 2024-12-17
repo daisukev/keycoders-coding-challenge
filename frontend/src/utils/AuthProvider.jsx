@@ -3,6 +3,7 @@ import { createContext } from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { baseUrl } from "./base";
+import { jwtDecoder } from "./jwtDecoder";
 
 export const AuthContext = createContext(null);
 
@@ -21,11 +22,12 @@ function AuthProvider({ children }) {
     const handleStorageChange = (event) => {
       if (event.key === "jwt" && !event.newValue) {
         setIsAuthenticated(false);
+        setUser({});
         navigate("/login");
       }
       const userLocalStorage = localStorage.getItem("jwt");
       if (userLocalStorage) {
-        setUser(userLocalStorage);
+        setUser(jwtDecoder(userLocalStorage).user);
         setIsAuthenticated(checkAuth());
       }
     };
@@ -58,10 +60,9 @@ function AuthProvider({ children }) {
         "Content-Type": "application/json",
       },
     });
-    // const res = await fetch(`${baseUrl}/api/token`, {
-    //     method: 'get'
-    // });
+
     if (!res.ok) {
+      /* TODO: better error handling */
       throw new Error("Response not Okay.");
     } else {
       const json = await res.json();

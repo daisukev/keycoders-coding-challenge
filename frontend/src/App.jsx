@@ -10,9 +10,7 @@ import { AuthContext } from "./utils/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  const navigate = useNavigate();
-  const [data, setData] = useState(null);
-  const { isAuthenticated, user, logout } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
   useEffect(() => {
     console.log("is authed:", isAuthenticated);
   }, [isAuthenticated]);

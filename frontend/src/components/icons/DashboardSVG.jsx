@@ -1,8 +1,8 @@
-const DashboardSVG = (props) => (
+const DashboardSVG = ({ width, height, ...restProps }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={50}
-    height={50}
+    width={width}
+    height={height}
     style={{
       shapeRendering: "geometricPrecision",
       textRendering: "geometricPrecision",
@@ -10,7 +10,7 @@ const DashboardSVG = (props) => (
       fillRule: "evenodd",
       clipRule: "evenodd",
     }}
-    {...props}
+    {...restProps}
   >
     <path
       d="M5.5 5.5h17v21h-17v-21Z"

@@ -1,6 +1,14 @@
-navItem {
-  color: var(--primary-color);
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
+.navItem {}
+
+.navLink {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    display: block;
+    transition: color 0.1s ease-in, fill 0.1s ease-in;
+}
+
+div .navLink:hover {
+    background-color: var(--dark-blue);
 }
