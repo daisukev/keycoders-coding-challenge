@@ -13,50 +13,9 @@ function App() {
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   const { isAuthenticated, user, logout } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const [data, setData] = useState(null);
-  const { isAuthenticated, user, logout } = useContext(AuthContext);
   useEffect(() => {
     console.log("is authed:", isAuthenticated);
   }, [isAuthenticated]);
-
-  // useEffect(() => {
-
-  //   try {
-    console.log("is authed:", isAuthenticated);
-  }, [isAuthenticated]);
-
-  // useEffect(() => {
-
-  //   try {
-
-  //     const fetchHello = async () => {
-  //       const response = await fetch('http://localhost:8080/hello?name=keycoder')
-  //       if (!response.ok) {
-  //         throw new Error("Response not okay.")
-  //       }
-  //       const text = await response.text();
-  //       setData(text)
-  //     }
-  //     fetchHello();
-  //     const fetchHello = async () => {
-  //       const response = await fetch('http://localhost:8080/hello?name=keycoder')
-  //       if (!response.ok) {
-  //         throw new Error("Response not okay.")
-  //       }
-  //       const text = await response.text();
-  //       setData(text)
-  //     }
-  //     fetchHello();
-
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }, [])
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }, [])
 
   return (
     <>
