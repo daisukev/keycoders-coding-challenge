@@ -4,8 +4,8 @@ import { useNavigate } from "react-router";
 import styles from "./LoginPage.module.css";
 import nakupunaLogo from "../assets/nakupuna-color-logo.png";
 import sailIcon from "../assets/nakupuna-sail-icon.png";
-import AvatarSVG from "../components/AvatarSVG.jsx";
-import LockSVG from "../components/LockSVG.jsx";
+import AvatarSVG from "../components/icons/AvatarSVG.jsx";
+import LockSVG from "../components/icons/LockSVG.jsx";
 import { baseUrl } from "../utils/base.jsx";
 
 const LoginPage = () => {

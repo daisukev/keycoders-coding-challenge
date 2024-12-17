@@ -12,13 +12,12 @@ public class UserMapper implements RowMapper<User> {
     public User mapRow(@NonNull ResultSet rs, int rowNum) throws SQLException {
         User user = new User();
 
-        // SELECT UserID, Name, EmailAddress,
-        // UserLevelID, CreatedDate, UpdatedDate
-        // FROM [User] WHERE EmailAddress = 'user1@naku.com';
         user.setUserID((rs.getInt("UserID")));
-        user.setName(rs.getString("Name"));
-        user.setEmailAddress(rs.getString("EmailAddress"));
-        user.setUserLevelID(rs.getInt("UserLevelID"));
+        user.setUserName(rs.getString("UserName"));
+        user.setLoweredUserName(rs.getString("LoweredUserName"));
+        user.setMobileAlias(rs.getString("MobileAlias"));
+        user.setIsAnonymous(rs.getBoolean("IsAnonymous"));
+        user.setLastActivityDate(rs.getTimestamp("LastActivityDate"));
         user.setCreatedDate(rs.getTimestamp("CreatedDate"));
         user.setUpdatedDate(rs.getTimestamp("UpdatedDate"));
         return user;

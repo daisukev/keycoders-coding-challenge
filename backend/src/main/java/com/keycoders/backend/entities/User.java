@@ -13,22 +13,58 @@ public class User {
 
     private int userID;
 
-    private String name;
+    private String UserName;
 
-    private String emailAddress;
+    private String LoweredUserName;
 
-    private int userLevelID;
+    private String MobileAlias;
+
+    private Boolean IsAnonymous;
+
+    private Timestamp LastActivityDate;
 
     private Timestamp createdDate;
 
     private Timestamp updatedDate;
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return UserName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        UserName = userName;
+    }
+
+    public String getLoweredUserName() {
+        return LoweredUserName;
+    }
+
+    public void setLoweredUserName(String loweredUserName) {
+        LoweredUserName = loweredUserName;
+    }
+
+    public String getMobileAlias() {
+        return MobileAlias;
+    }
+
+    public void setMobileAlias(String mobileAlias) {
+        MobileAlias = mobileAlias;
+    }
+
+    public Boolean getIsAnonymous() {
+        return IsAnonymous;
+    }
+
+    public void setIsAnonymous(Boolean isAnonymous) {
+        IsAnonymous = isAnonymous;
+    }
+
+    public Timestamp getLastActivityDate() {
+        return LastActivityDate;
+    }
+
+    public void setLastActivityDate(Timestamp lastActivityDate) {
+        LastActivityDate = lastActivityDate;
     }
 
     public int getUserID() {
@@ -37,22 +73,6 @@ public class User {
 
     public void setUserID(int userID) {
         this.userID = userID;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-    public int getUserLevelID() {
-        return userLevelID;
-    }
-
-    public void setUserLevelID(int userLevelID) {
-        this.userLevelID = userLevelID;
     }
 
     public Timestamp getCreatedDate() {

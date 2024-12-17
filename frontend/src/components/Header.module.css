@@ -1,0 +1,24 @@
+.header {
+    background-color: var(--secondary-bg-color);
+    min-height: 85px;
+    height: 10cqh;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    padding: var(--min-padding);
+    container-type: size;
+}
+
+.header img {
+    max-height: 100cqh;
+}
+
+.sideNavigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: end;
+}
+
+/* . @container (min-width: 768px) {
+    .header {}
+} */
