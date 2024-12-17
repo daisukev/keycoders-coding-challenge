@@ -15,7 +15,7 @@ services:
             - node_modules/
         - action: sync
           path: ./frontend/package.json
-          target: /app/package.json
+          target: package.json
     depends_on:
       - backend
 
