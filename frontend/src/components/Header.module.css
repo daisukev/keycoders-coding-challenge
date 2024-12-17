@@ -1,0 +1,12 @@
+.header {
+  background-color: var(--secondary-bg-color);
+  grid-area: a;
+  min-height: 85px;
+  height: clamp(85px, 15cqh, 150px);
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  padding: var(--min-padding);
+}
+
+.header img {
+}

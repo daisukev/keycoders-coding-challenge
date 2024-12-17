@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "a a a a a a a a a a"
+    "b b b c c c c c c c"
+    "b b b c c c c c c c";
+  container-type: inline-size;
+}
+
+.contentContainer {
+  padding: 0.5rem;
+}

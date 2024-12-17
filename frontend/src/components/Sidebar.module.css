@@ -1,0 +1,6 @@
+.sidebar {
+  background-color: var(--secondary-bg-color);
+  grid-area: b;
+  height: 85cqh;
+  padding: var(--min-padding);
+}
