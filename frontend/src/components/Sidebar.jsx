@@ -11,7 +11,7 @@ const Sidebar = () => {
     console.log(user);
     return (
         <div className={styles.sidebar} role="navigation">
-            <NavItem icon={<DashboardSVG />} to="/">
+            <NavItem icon={<DashboardSVG width={50} height={50} />} to="/">
                 Dashboard
             </NavItem>
             <NavItem icon={<TemplateBuilder />} to="/template-builder">Template Builder</NavItem>

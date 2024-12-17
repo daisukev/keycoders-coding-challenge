@@ -54,7 +54,7 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@RequestBody Credentials credentials) throws SQLException {
         // TODO: Error Handling on blank results
-        User user = userRepository.findUserByEmail(credentials.getLogin());
+        User user = userRepository.findUserByUserName(credentials.getLogin());
         // compare passwords
         String hashedPass = passwordEncoder.encode(credentials.getPassword());
         String jwt = generateJwtToken(user);
@@ -76,7 +76,7 @@ public class AuthController {
         // java.util.Date date = new java.util.Date();
         Timestamp issueDate = new Timestamp(System.currentTimeMillis());
         Timestamp expirationDate = new Timestamp(issueDate.getTime() + this.jwtExpirationMS);
-        return Jwts.builder().subject(user.getEmailAddress())
+        return Jwts.builder().subject(user.getUserName())
                 .claim("user", user)
                 .issuedAt(issueDate)
                 .expiration(expirationDate)

@@ -17,11 +17,13 @@ public class UserRepository {
     }
 
     // seems to be the login default.
-    public User findUserByEmail(String email) {
-        // String sql = "SELECT UserID, Name, EmailAddress, UserLevelID, CreatedDate,
-        // UpdatedDate FROM [User] WHERE EmailAddress = ?";
-        String sql = "SELECT * FROM [dbo].[User] WHERE EmailAddress = ?";
-        return jdbcTemplate.queryForObject(sql, new UserMapper(), email);
+    public User findUserByUserName(String username) {
+        String sql = "SELECT UserID, UserName, LoweredUserName, MobileAlias, IsAnonymous, LastActivityDate, CreatedDate, UpdatedDate FROM [User] WHERE UserName = ?";
+        return jdbcTemplate.queryForObject(sql, new UserMapper(), username);
     }
 
+    public <List> User findUsersByUserName(String username) {
+        String sql = "SELECT UserID, UserName, LoweredUserName, MobileAlias, IsAnonymous, LastActivityDate, CreatedDate, UpdatedDate FROM [User]";
+        return jdbcTemplate.queryForObject(sql, new UserMapper(), username);
+    }
 }

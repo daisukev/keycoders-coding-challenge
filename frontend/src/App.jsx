@@ -4,6 +4,7 @@ import LoginPage from "./views/LoginPage";
 import DashboardLayout from "./views/DashboardLayout";
 import DashboardHome from "./views/DashboardHome";
 import TemplateBuilder from "./views/TemplateBuilder";
+import RequestsStatus from "./views/RequestsStatus";
 import "./App.css";
 import { AuthContext } from "./utils/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -43,6 +44,7 @@ function App() {
             <Route path="/" element={<DashboardLayout />}>
               <Route index element={<DashboardHome />} />
               <Route path="/template-builder" element={<TemplateBuilder />} />
+              <Route path="/requests-status" element={<RequestsStatus />} />
               <Route path="/*" element={<DashboardHome />} />
             </Route>
           </Route>

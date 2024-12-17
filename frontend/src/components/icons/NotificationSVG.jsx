@@ -1,8 +1,8 @@
-const NotificationSVG = (props) => (
+const NotificationSVG = ({ width, height, ...restProps }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={50}
-    height={50}
+    width={width}
+    height={height}
     style={{
       shapeRendering: "geometricPrecision",
       textRendering: "geometricPrecision",
@@ -10,7 +10,7 @@ const NotificationSVG = (props) => (
       fillRule: "evenodd",
       clipRule: "evenodd",
     }}
-    {...props}
+    {...restProps}
   >
     <path
       d="M21.5 3.5c3.36-.71 5.193.624 5.5 4 5.093 2.091 8.426 5.758 10 11l1 15c2.264 1.416 3.431 3.416 3.5 6h-36c-.408-3.1.759-5.433 3.5-7 .138-6.081.804-12.081 2-18 2.16-3.162 4.993-5.495 8.5-7l2-4Z"

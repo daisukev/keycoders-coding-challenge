@@ -6,6 +6,10 @@
     flex-direction: column;
 }
 
+.sidebar a {
+    display: block;
+}
+
 @container (min-width: 768px) {
     .sidebar {
         width: clamp(150px, 15cqw, 40cqw);
