@@ -22,6 +22,7 @@ public class SecurityConfig {
 
         @Bean
         public SecurityFilterChain filterChain(HttpSecurity http, CorsFilter corsFilter) throws Exception {
+                // TODO: Integrate the JWT check here. Figure out the scoped as well.
                 return http
                                 .addFilterBefore(corsFilter, org.springframework.web.filter.CorsFilter.class)
                                 .csrf(csrf -> csrf.disable())
