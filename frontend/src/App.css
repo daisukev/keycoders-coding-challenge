@@ -87,6 +87,16 @@ button:active {
   transform: translate(1px, 1px);
 }
 
+button:disabled {
+  /* background-color: var(--secondary-color); */
+  filter: saturate(40%);
+  cursor: not-allowed;
+}
+
+button:disabled:active {
+  transform: unset;
+}
+
 
 #root,
 #__next {

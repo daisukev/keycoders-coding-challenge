@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 public class HelloContoller {
 
-
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -19,4 +18,5 @@ public class HelloContoller {
         String message = jdbcTemplate.queryForObject(sql, String.class);
         return new String("Hello " + name + "! Here is the column count from DB: " + message);
     }
+
 }
