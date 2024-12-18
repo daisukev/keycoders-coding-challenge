@@ -1,6 +1,7 @@
 import styles from "./Survey.module.css";
 import { NavLink, Outlet } from "react-router";
 import WorkList from "../components/WorkList";
+import uuidv4 from "../utils/uuidv4";
 const Survey = () => {
   const surveys = [
     { id: 1, title: "Survey 1", requester: "PM Name One" },
@@ -14,16 +15,17 @@ const Survey = () => {
   return (
     <div className={styles.container}>
       <WorkList>
-        {surveys.map((survey, index) => (
+        {surveys.map((survey) => (
           <NavLink
             to={`/surveys/${survey.id}`}
-            key={survey.id}
+            key={uuidv4()}
             className={styles.workListItem}
           >
             <div>
               {survey.title}
               <div>Requested by {survey.requester}</div>
             </div>
+            <hr className="separator" />
           </NavLink>
         ))}
       </WorkList>

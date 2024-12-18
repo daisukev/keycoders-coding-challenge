@@ -28,9 +28,6 @@ const Sidebar = () => {
         Requests Status
       </NavItem>
       <NavItem to="/surveys">Surveys</NavItem>
-      <NavItem to="/">Somewhere</NavItem>
-      <NavItem to="/">Somewhere</NavItem>
-      <NavItem to="/">Somewhere</NavItem>
     </div>
   );
 };

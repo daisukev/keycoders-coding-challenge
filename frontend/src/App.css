@@ -18,6 +18,7 @@
   -webkit-font-smoothing: antialiased;
   --main-bg-color: #f3f3f3;
   --secondary-bg-color: #ededed;
+  --secondary-color-lighter: #dbdbdb;
   --secondary-color: #777778;
   --secondary-color-darker: #6d6d6d;
   --primary-color: #000000;
@@ -27,6 +28,7 @@
   --orange: #ed7d31;
   --blue: #5b9bd5;
   --dark-blue: #3a6287;
+  --bold-blue: #0076ff;
   --light: white;
   --input-height: 2.5rem;
   --border-radius: 0.25rem;
@@ -133,4 +135,11 @@ button:disabled:active {
 .viewportContainer {
   container-type: size;
   height: 100cqh;
+}
+
+.separator {
+  height: 2px;
+  border: none;
+  background-color: var(--secondary-color-lighter);
+  margin-block: 0.5rem;
 }

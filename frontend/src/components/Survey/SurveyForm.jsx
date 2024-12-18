@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import styles from "./SurveyForm.module.css";
+import uuidv4 from "../../utils/uuidv4";
 
 const SurveyForm = ({ children, ...props }) => {
   const fetchSurvey = (surveyId) => {
@@ -66,7 +67,7 @@ const SurveyForm = ({ children, ...props }) => {
       <form {...props}>
         {currentSurvey.sections?.map((section) => {
           return (
-            <section key={section.surveyId} className={styles.surveySection}>
+            <section key={uuidv4()} className={styles.surveySection}>
               <h3 className={styles.sectionTitle}>{section.sectionTitle}</h3>
               {section.questions.map((question) => {
                 return (

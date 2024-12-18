@@ -1,16 +1,7 @@
-.container {
-    container-type: size;
-    height: 100cqh;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: auto 1fr;
-}
-
-/* TODO: should be its own component */
 .workListItem {
-    margin-right: 0rem;
     text-decoration: none;
     color: var(--primary-color);
+    display: block;
 }
 
 a.workListItem:hover>div {
@@ -23,4 +14,17 @@ a.workListItem:hover>div {
     border: 2px solid transparent;
     border-radius: 0.5rem;
     transition: 0.1s ease-in;
+}
+
+.arrowRight {
+    display: inline-block;
+    fill: var(--secondary-color);
+}
+
+.separator {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    height: 2px;
+    background-color: var(--secondary-color-lighter);
 }

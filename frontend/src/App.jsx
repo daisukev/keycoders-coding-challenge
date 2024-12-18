@@ -4,6 +4,7 @@ import LoginPage from "./views/LoginPage";
 import DashboardLayout from "./views/DashboardLayout";
 import DashboardHome from "./views/DashboardHome";
 import TemplateBuilder from "./views/TemplateBuilder";
+import TemplateEditor from "./views/TemplateEditor";
 import RequestsStatus from "./views/RequestsStatus";
 import "./App.css";
 import { AuthContext } from "./utils/AuthProvider";
@@ -25,6 +26,10 @@ function App() {
             <Route path="/" element={<DashboardLayout />}>
               <Route index element={<DashboardHome />} />
               <Route path="/template-builder" element={<TemplateBuilder />} />
+              <Route
+                path="/templates/new"
+                element={<TemplateEditor isNew={true} />}
+              />
               <Route path="/requests-status" element={<RequestsStatus />} />
               <Route path="/surveys" element={<Survey />}>
                 <Route path="/surveys/:surveyId" element={<SurveyForm />} />
