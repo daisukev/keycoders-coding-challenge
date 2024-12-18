@@ -1,0 +1,25 @@
+.container {
+    container-type: size;
+    height: 100cqh;
+    border: 2px solid var(--orange);
+    padding: 0.75rem;
+    overflow-y: auto;
+}
+
+.templateItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.templateItem svg {
+    fill: var(--secondary-color-lighter);
+}
+
+.bigSeparator {
+    margin-block: 2rem;
+    height: 5px;
+    border: none;
+    background-color: var(--secondary-color-lighter);
+}

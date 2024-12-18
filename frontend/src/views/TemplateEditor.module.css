@@ -1,0 +1,63 @@
+button {
+    height: 2rem;
+    min-width: 7rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    background-color: var(--bold-blue);
+    color: var(--light);
+    border-radius: 0.5rem;
+}
+
+.sectionHeader {
+    display: flex;
+    place-content: center;
+}
+
+.section {
+    margin-block: 1rem;
+    padding: 1rem;
+    background: var(--light);
+    border-radius: 1rem;
+}
+
+.section>* {
+    margin: 0.25rem;
+}
+
+.headerActions {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+    margin-block: 1rem;
+}
+
+.templateData {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--light);
+    border-radius: 1rem;
+
+    ;
+}
+
+.templateData>* {
+    justify-self: end;
+}
+
+input::placeholder {
+    font-size: 1rem;
+}
+
+.question {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-block: 0.75rem;
+}
+
+queston>* {
+    margin-right: 0.5rem;
+}
