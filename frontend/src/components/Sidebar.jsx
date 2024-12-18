@@ -6,6 +6,8 @@ import RequestsStatusSVG from "./icons/RequestsStatusSVG";
 import { useContext } from "react";
 import { AuthContext } from "../utils/AuthProvider";
 
+/* Ideally, nav items will use the user claim from the JWT and their ROLE to 
+determine what items they have available. data secured through protected endpoints*/
 const Sidebar = () => {
   const { user } = useContext(AuthContext);
   return (
@@ -25,6 +27,10 @@ const Sidebar = () => {
       >
         Requests Status
       </NavItem>
+      <NavItem to="/surveys">Surveys</NavItem>
+      <NavItem to="/">Somewhere</NavItem>
+      <NavItem to="/">Somewhere</NavItem>
+      <NavItem to="/">Somewhere</NavItem>
     </div>
   );
 };

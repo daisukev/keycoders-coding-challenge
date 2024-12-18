@@ -1,0 +1,9 @@
+.container {
+    box-sizing: border-box;
+    background-color: var(--secondary-bg-color);
+    min-width: max(400px, 20cqw);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
