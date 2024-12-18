@@ -2,6 +2,7 @@ package com.keycoders.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.keycoders.backend.entities.Credentials;
+import com.keycoders.backend.entities.UserProfile;
 import com.keycoders.backend.model.Message;
+import com.keycoders.backend.repositories.UserProfileRepository;
+
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -19,10 +28,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 // For simplicity of this sample, allow all origins. Real applications should
 // configure CORS for their use case.
 @CrossOrigin(origins = "*")
+@RequiredArgsConstructor
 public class APIController {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private UserProfileRepository userProfileRepository;
 
     @PostMapping(value = "/token")
     public Message token(@RequestBody Credentials credential) {
@@ -43,6 +56,13 @@ public class APIController {
     public Message publicEndpoint() {
         System.out.println("hello");
         return new Message("All good. You DO NOT need to be authenticated to call /api/public.");
+    }
+
+    @GetMapping(value = "/user-profile")
+    public ResponseEntity<?> getUserProfileByID(@RequestParam Integer id) {
+
+        UserProfile userProfile = userProfileRepository.findUserProfileByUserId(id);
+        return (ResponseEntity<?>) ResponseEntity.ok().body(userProfile);
     }
 
     @GetMapping(value = "/private")

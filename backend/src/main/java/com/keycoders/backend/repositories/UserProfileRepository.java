@@ -16,7 +16,6 @@ public class UserProfileRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    
     /**
      * @param UserId
      * @return UserProfile object
@@ -25,7 +24,7 @@ public class UserProfileRepository {
         // String sql = "SELECT UserID, Name, EmailAddress, UserLevelID, CreatedDate,
         // UpdatedDate FROM [User] WHERE EmailAddress = ?";
         String sql = "SELECT * FROM [dbo].[UserProfile] WHERE UserId = ?";
-        return jdbcTemplate.queryForObject(sql, new UserProfileMapper(), UserId );
+        return jdbcTemplate.queryForObject(sql, new UserProfileMapper(), UserId);
     }
 
 }
