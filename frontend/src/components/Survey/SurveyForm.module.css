@@ -1,0 +1,30 @@
+/* TODO: Should be its own component */
+.survey {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.survey form {
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: 2rem;
+
+}
+
+.survey form .survey h2 {
+    margin-bottom: 2rem;
+}
+
+.sectionTitle {
+    background-color: var(--blue);
+    width: max-content;
+    min-width: 7rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.question {
+    padding-block: 1rem;
+    display: grid;
+}

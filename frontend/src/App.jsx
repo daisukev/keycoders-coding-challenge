@@ -8,6 +8,8 @@ import RequestsStatus from "./views/RequestsStatus";
 import "./App.css";
 import { AuthContext } from "./utils/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Survey from "./views/Survey";
+import SurveyForm from "./components/Survey/SurveyForm";
 
 function App() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -24,6 +26,9 @@ function App() {
               <Route index element={<DashboardHome />} />
               <Route path="/template-builder" element={<TemplateBuilder />} />
               <Route path="/requests-status" element={<RequestsStatus />} />
+              <Route path="/surveys" element={<Survey />}>
+                <Route path="/surveys/:surveyId" element={<SurveyForm />} />
+              </Route>
               <Route path="/*" element={<DashboardHome />} />
             </Route>
           </Route>

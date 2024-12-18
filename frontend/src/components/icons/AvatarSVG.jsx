@@ -5,7 +5,7 @@ const AvatarSVG = ({ width = 25, height = 25, fill = "#000000" }) => {
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
-      viewBox="0 0 100 100"
+      viewBox="15 15 75 75"
       xmlSpace="preserve"
     >
       <g>

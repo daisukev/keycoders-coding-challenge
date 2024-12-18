@@ -1,0 +1,27 @@
+.container {
+    container-type: size;
+    height: 100cqh;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto 1fr;
+}
+
+
+/* TODO: should be its own component */
+.workListItem {
+    margin-right: 0rem;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a.workListItem:hover>div {
+    border: 2px solid var(--orange);
+}
+
+.workListItem>div {
+    padding: 1rem;
+    background-color: var(--main-bg-color);
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    transition: 0.1s ease-in;
+}
