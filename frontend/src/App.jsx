@@ -7,17 +7,11 @@ import TemplateBuilder from "./views/TemplateBuilder";
 import TemplateEditor from "./views/TemplateEditor";
 import RequestsStatus from "./views/RequestsStatus";
 import "./App.css";
-import { AuthContext } from "./utils/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Survey from "./views/Survey";
 import SurveyForm from "./components/Survey/SurveyForm";
 
 function App() {
-  const { isAuthenticated } = useContext(AuthContext);
-  useEffect(() => {
-    console.log("is authed:", isAuthenticated);
-  }, [isAuthenticated]);
-
   return (
     <>
       <div className="viewportContainer">
